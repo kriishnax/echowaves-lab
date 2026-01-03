@@ -2,6 +2,7 @@ import FadeIn from "./FadeIn";
 import krishnaImg from "../assets/krishna.jpg";
 import adityaImg from "../assets/aditya.jpg";
 
+
 type Founder = {
   name: string;
   role: string;
