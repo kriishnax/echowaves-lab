@@ -8,10 +8,12 @@ import Portfolio from "./components/Portfolio";
 import FAQ from "./components/FAQ";
 import ContactCTA from "./components/ContactCTA";
 import Footer from "./components/Footer";
+import WIPBanner from "./components/WIPBanner";
 
 const App = () => {
   return (
     <div className="min-h-screen bg-black text-white">
+       <WIPBanner />
       <Navbar />
       <Hero />
       <Services />

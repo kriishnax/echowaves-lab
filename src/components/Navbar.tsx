@@ -6,7 +6,7 @@ const Navbar = () => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 w-full bg-black/80 backdrop-blur
+      className="fixed top-8 sm:top-9 w-full bg-black/80 backdrop-blur
       border-b border-white/10 z-50"
     >
       <div
