@@ -1,6 +1,6 @@
 import FadeIn from "./FadeIn";
-import krishnaImg from "../assets/krishna.jpg";
-import adityaImg from "../assets/aditya.jpg";
+import krishnaImg from "../assets/krishnaa.jpg";
+import adityaImg from "../assets/adityaa.jpg";
 
 
 type Founder = {
