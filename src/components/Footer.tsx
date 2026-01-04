@@ -100,7 +100,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="mt-10 pt-6 border-t border-white/10 text-sm text-gray-500 flex flex-col sm:flex-row justify-between gap-4">
           <span>© {new Date().getFullYear()} EchoWaves Lab</span>
-          <span>Built with care.</span>
+          <span>Built with care❤️.</span>
         </div>
       </div>
     </footer>
