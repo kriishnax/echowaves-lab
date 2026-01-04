@@ -94,20 +94,15 @@ const Hero = () => {
             gap-3 sm:gap-4
             "
           >
-            <button
-              className="
-              px-6 sm:px-8
-              py-3 sm:py-4
-              bg-white text-black
-              rounded-md
-              font-medium
-              hover:bg-gray-200
-              hover:scale-[1.03]
-              transition-all
-              "
-            >
-              Start a Project
-            </button>
+           <button
+  onClick={() =>
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+  }
+  className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-black rounded-md"
+>
+  Start a Project
+</button>
+
 
             <button
               className="

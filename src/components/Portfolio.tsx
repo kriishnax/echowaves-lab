@@ -1,24 +1,71 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import FadeIn from "./FadeIn";
+
+// Images (Vite-safe imports)
+import webAgency from "../assets/projects/web-agency.jpg";
+import uiDashboard from "../assets/projects/ui-dashboard.jpg";
+import branding from "../assets/projects/brand-identity.jpg";
+import photography from "../assets/projects/photography.jpg";
+import videoEdit from "../assets/projects/video-edit.jpg";
+import landingPage from "../assets/projects/landing-page.jpg";
 
 type Category = "All" | "Web" | "Design" | "Photo" | "Video";
 
 type Project = {
+  id: string;
   title: string;
   category: Category;
   tag: string;
+  image: string;
 };
 
 const categories: Category[] = ["All", "Web", "Design", "Photo", "Video"];
 
 const projects: Project[] = [
-  { title: "Modern Business Website", category: "Web", tag: "Web Design & Dev" },
-  { title: "UI Dashboard Design", category: "Design", tag: "UI/UX Design" },
-  { title: "Brand Identity System", category: "Design", tag: "Branding" },
-  { title: "Product Photography", category: "Photo", tag: "Photography" },
-  { title: "Promotional Video Edit", category: "Video", tag: "Videography" },
-  { title: "Startup Landing Page", category: "Web", tag: "Web Development" },
+  {
+    id: "modern-business-website",
+    title: "Modern Business Website",
+    category: "Web",
+    tag: "Web Design & Development",
+    image: webAgency,
+  },
+  {
+    id: "ui-dashboard",
+    title: "UI Dashboard Design",
+    category: "Design",
+    tag: "UI/UX Design",
+    image: uiDashboard,
+  },
+  {
+    id: "brand-identity",
+    title: "Brand Identity System",
+    category: "Design",
+    tag: "Branding",
+    image: branding,
+  },
+  {
+    id: "product-photography",
+    title: "Product Photography",
+    category: "Photo",
+    tag: "Photography",
+    image: photography,
+  },
+  {
+    id: "promotional-video",
+    title: "Promotional Video Edit",
+    category: "Video",
+    tag: "Videography",
+    image: videoEdit,
+  },
+  {
+    id: "startup-landing-page",
+    title: "Startup Landing Page",
+    category: "Web",
+    tag: "Web Development",
+    image: landingPage,
+  },
 ];
 
 const Portfolio = () => {
@@ -30,8 +77,8 @@ const Portfolio = () => {
       : projects.filter((p) => p.category === active);
 
   return (
-    <section className="py-24 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="work" className="py-16 sm:py-20 lg:py-24 border-t border-white/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <FadeIn>
           <div className="mb-10">
@@ -80,40 +127,46 @@ const Portfolio = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {filtered.map((project) => (
               <motion.div
-                key={project.title}
+                key={project.id}
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 12 }}
                 transition={{ duration: 0.25 }}
                 whileHover={{ y: -6 }}
-                className="group relative border border-white/10 rounded-xl overflow-hidden cursor-pointer"
               >
-                {/* Image Placeholder */}
-                <div className="h-48 bg-white/5 flex items-center justify-center">
-                  <span className="text-gray-500 text-sm">
-                    Project Preview
-                  </span>
-                </div>
-
-                {/* Hover Overlay */}
-                <div
-                  className="absolute inset-0 bg-black/80 opacity-0
-                  group-hover:opacity-100 transition-opacity duration-300
-                  flex items-end"
+                <Link
+                  to={`/work/${project.id}`}
+                  className="group block relative border border-white/10 rounded-xl overflow-hidden
+                  hover:border-white/30 transition"
                 >
-                  <div className="p-5">
-                    <h3 className="text-lg font-semibold">
-                      {project.title}
-                    </h3>
-                    <p className="mt-1 text-sm text-gray-400">
-                      {project.tag}
-                    </p>
+                  {/* Image */}
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-48 w-full object-cover
+                    group-hover:scale-105 transition-transform duration-500"
+                  />
+
+                  {/* Hover Overlay */}
+                  <div
+                    className="absolute inset-0 bg-black/80 opacity-0
+                    group-hover:opacity-100 transition-opacity duration-300
+                    flex items-end"
+                  >
+                    <div className="p-5">
+                      <h3 className="text-lg font-semibold">
+                        {project.title}
+                      </h3>
+                      <p className="mt-1 text-sm text-gray-400">
+                        {project.tag}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </motion.div>
